@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.shooter {
+			width: 80px; 
+			position: absolute; 	
+			margin-left: 600px;
+		}
+		.box {
+			background-image: url(game.png);
+			height: 1000px; 
+			background-size: 100% 100%;
+		}
+		.zombies {
+			width: 80px; 
+			position: absolute;
+
+		}
+		.sunflower {
+			position: absolute;
+			margin-left: 600px;
+			top: 750px;
+			width: 100px;
+			display: none;
+		}
+		.end {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			background: gray;
+			width: 800px;
+			height: 350px;
+			border-radius: 8%;
+			display: none;
+			position: absolute;
+			left: 600px;
+			top:250px;
+		}
+	</style>
+</head>
+<body>	
+	
+	<div class="box" style="">
+		
+		<h5 style="position: absolute; left: 800px; top: 50px; color: white;"><span class="score">0<span></h5>
+
+		<!--ГОРОХИ-->
+	    <img class="shooter" src="peashooter.png"  style="top: 250px; ">		
+		<img class="shooter" src="peashooter.png"  style="top: 350px; ">	
+		<img class="shooter" src="peashooter.png"  style="top: 450px; ">	
+		<img class="shooter" src="peashooter.png"  style="top: 550px; ">
+		<img class="shooter" src="peashooter.png"  style="top: 650px; ">
+		<img class="sunflower" src="sunflower.png" style="">
+
+		<!--ЗОМБИ-->
+		<img class="zombies" src="zombie1.png" style="top: 220px">
+		<img class="zombies" src="zombie2.png" style="top: 320px">
+		<img class="zombies" src="zombie2.png" style="top: 420px">
+		<img class="zombies" src="zombie4.png" style="top: 520px">
+		<img class="zombies" src="zombie4.png" style="top: 620px">
+		<img class="zombies" src="zombie2.png" style="top: 720px; display: none;">
+	
+		<!--КОНЕЦ-->
+		<div class="end" style="font-size: 16px">
+			<h1 style="padding-top: 100px;">Игра окончена ОКОНЧАНА </h1>
+		</div>
+	</div>
+
+<script>
+	let sunflower = document.querySelector('.sunflower')
+	let zombies = document.querySelectorAll('.zombies')
+	let shooter = document.querySelectorAll('.shooter')
+	let score = document.querySelector('.score')
+	let score1 = 0
+	let left1 = 900
+	let left2 = 1500
+	let left3 = 800
+	let left4 = 700
+	let left5 = 1000
+	let left6 = 1100
+	zombies[0].style.marginLeft = left1 + "px"
+	zombies[1].style.marginLeft = left2 + "px"
+	zombies[2].style.marginLeft = left3 + "px"
+	zombies[3].style.marginLeft = left4 + "px"
+	zombies[4].style.marginLeft = left5 + "px"
+	zombies[5].style.marginLeft = left6 + "px"
+	zombies[0].onclick = function() {
+		left1 = left1 - 100
+		console.log(left1)
+		zombies[0].style.marginLeft = left1 + "px"
+		zombies[0].style.transition = "0.5s"
+		if (left1==600) {
+			score1 = score1 + 1
+			score.innerHTML = score1
+			zombies[0].style.pointerEvents = "none"
+			shooter[0].style.display = "none"
+			if (score1==6) {
+				zombies[0].style.display = "none"
+				zombies[1].style.display = "none"
+				zombies[2].style.display = "none"
+				zombies[3].style.display = "none"
+				zombies[4].style.display = "none"
+				zombies[5].style.display = "none"
+				document.querySelector('.end').style.display = "block"
+			}	
+		}
+		if (score1==2) {
+			sunflower.style.display = "block"
+			zombies[5].style.display = "block"
+			zombies[5].onclick = function() {
+				left6 = left6 - 100
+				console.log(left6)
+				zombies[5].style.marginLeft = left6 + "px"
+				zombies[5].style.transition = "0.5s"
+				if (left6==600) {
+					score1 = score1 + 1
+					score.innerHTML = score1
+					zombies[5].style.pointerEvents = "none"
+					sunflower.style.display = "none"
+					if (score1==6) {
+						zombies[0].style.display = "none"
+						zombies[1].style.display = "none"
+						zombies[2].style.display = "none"
+						[3].style.display = "none"
+						zombies[4].style.display = "none"
+						zombies[5].style.display = "none"
+						document.querySelector('.end').style.display = "block"
+					}
+				}
+			}
+		}
+	}
+	zombies[1].onclick = function() {
+		left2 = left2 - 100
+		console.log(left1)
+		zombies[1].style.marginLeft = left2 + "px"
+		zombies[1].style.transition = "0.5s"
+		if (left2==600) {
+			score1 = score1 + 1
+			score.innerHTML = score1
+			zombies[1].style.pointerEvents = "none"
+			shooter[1].style.display = "none"
+			if (score1==6) {
+				zombies[0].style.display = "none"
+				zombies[1].style.display = "none"
+				zombies[2].style.display = "none"
+				zombies[3].style.display = "none"
+				zombies[4].style.display = "none"
+				zombies[5].style.display = "none"
+				document.querySelector('.end').style.display = "block"
+			
+			}
+		}
+		if (score1==2) {
+			sunflower.style.display = "block"
+			zombies[5].style.display = "block"
+			zombies[5].onclick = function() {
+				left6 = left6 - 100
+				console.log(left6)
+				zombies[5].style.marginLeft = left6 + "px"
+				zombies[5].style.transition = "0.5s"
+				if (left6==600) {
+					score1 = score1 + 1
+					score.innerHTML = score1
+					zombies[5].style.pointerEvents = "none"
+					sunflower.style.display = "none"
+					if (score1==6) {
+						zombies[0].style.display = "none"
+						zombies[1].style.display = "none"
+						zombies[2].style.display = "none"
+						zombies[3].style.display = "none"
+						zombies[4].style.display = "none"
+						zombies[5].style.display = "none"
+						document.querySelector('.end').style.display = "block"
+					}
+				}
+			}
+		}
+	}
+	zombies[2].onclick = function() {
+		left3 = left3 - 100
+		console.log(left1)
+		zombies[2].style.marginLeft = left3 + "px"
+		zombies[2].style.transition = "0.5s"
+		if (left3==600) {
+			score1 = score1 + 1
+			score.innerHTML = score1
+			zombies[2].style.pointerEvents = "none"
+			shooter[2].style.display = "none"
+			if (score1==6) {
+				zombies[0].style.display = "none"
+				zombies[1].style.display = "none"
+				zombies[2].style.display = "none"
+				zombies[3].style.display = "none"
+				zombies[4].style.display = "none"
+				zombies[5].style.display = "none"
+				document.querySelector('.end').style.display = "block"
+			}
+		}
+		if (score1==2) {
+			sunflower.style.display = "block"
+			zombies[5].style.display = "block"
+			zombies[5].onclick = function() {
+				left6 = left6 - 100
+				console.log(left6)
+				zombies[5].style.marginLeft = left6 + "px"
+				zombies[5].style.transition = "0.5s"
+				if (left6==600) {
+					score1 = score1 + 1
+					score.innerHTML = score1
+					zombies[5].style.pointerEvents = "none"
+					sunflower.style.display = "none"
+					if (score1==6) {
+						zombies[0].style.display = "none"
+						zombies[1].style.display = "none"
+						zombies[2].style.display = "none"
+						zombies[3].style.display = "none"
+						zombies[4].style.display = "none"
+						zombies[5].style.display = "none"
+						document.querySelector('.end').style.display = "block"
+					}	
+				}
+			}
+		}
+	}
+	zombies[3].onclick = function() {
+		left4 = left4 - 100
+		console.log(left1)
+		zombies[3].style.marginLeft = left4 + "px"
+		zombies[3].style.transition = "0.5s"
+		if (left4==600) {
+			score1 = score1 + 1
+			score.innerHTML = score1
+			zombies[3].style.pointerEvents = "none"
+			shooter[3].style.display = "none"
+			if (score1==6) {
+				zombies[0].style.display = "none"
+				zombies[1].style.display = "none"
+				zombies[2].style.display = "none"
+				zombies[3].style.display = "none"
+				zombies[4].style.display = "none"
+				zombies[5].style.display = "none"
+				document.querySelector('.end').style.display = "block"
+			}	
+		}
+		if (score1==2) {
+			sunflower.style.display = "block"
+			zombies[5].style.display = "block"
+			zombies[5].onclick = function() {
+				left6 = left6 - 100
+				console.log(left6)
+				zombies[5].style.marginLeft = left6 + "px"
+				zombies[5].style.transition = "0.5s"
+				if (left6==600) {
+					score1 = score1 + 1
+					score.innerHTML = score1
+					zombies[5].style.pointerEvents = "none"
+					sunflower.style.display = "none"
+					if (score1==6) {
+						zombies[0].style.display = "none"
+						zombies[1].style.display = "none"
+						zombies[2].style.display = "none"
+						zombies[3].style.display = "none"
+						zombies[4].style.display = "none"
+						zombies[5].style.display = "none"
+						document.querySelector('.end').style.display = "block"
+					}	
+				}
+			}
+		}
+	}
+	zombies[4].onclick = function() {
+		left5 = left5 - 100
+		console.log(left1)
+		zombies[4].style.marginLeft = left5 + "px"
+		zombies[4].style.transition = "0.5s"
+		if (left5==600) {
+			score1 = score1 + 1
+			score.innerHTML = score1
+			zombies[4].style.pointerEvents = "none"
+			shooter[4].style.pointerEvents = "none"
+			shooter[4].style.display = "none"
+			if (score1==6) {
+				zombies[0].style.display = "none"
+				zombies[1].style.display = "none"
+				zombies[2].style.display = "none"
+				zombies[3].style.display = "none"
+				zombies[4].style.display = "none"
+				zombies[5].style.display = "none"
+				document.querySelector('.end').style.display = "block"
+			}	
+		}
+		if (score1==2) {
+			sunflower.style.display = "block"
+			zombies[5].style.display = "block"
+			zombies[5].onclick = function() {
+				left6 = left6 - 100
+				console.log(left6)
+				zombies[5].style.marginLeft = left6 + "px"
+				zombies[5].style.transition = "0.5s"
+				if (left6==600) {
+					score1 = score1 + 1
+					score.innerHTML = score1
+					zombies[5].style.pointerEvents = "none"
+					sunflower.style.display = "none"
+					if (score1==6) {
+						zombies[0].style.display = "none"
+						zombies[1].style.display = "none"
+						zombies[2].style.display = "none"
+						zombies[3].style.display = "none"
+						zombies[4].style.display = "none"
+						zombies[5].style.display = "none"
+						document.querySelector('.end').style.display = "block"
+					}	
+				}
+			}
+		}
+
+	}
+</script>
+</body>
+</html>
